@@ -1,0 +1,1 @@
+@media (max-width: 720px) { .hero-inner { grid-template-columns: 1fr; } .hero-text h1 { font-size: 28px; } .gallery { grid-template-columns: 1fr; } }  /d "C:\Users\USER\Desktop\right wisdom schools\website"
