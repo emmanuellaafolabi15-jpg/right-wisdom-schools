@@ -5,8 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Right Wisdom School</title>
 <link rel="icon" href="public/images/logo.png">
-<link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, serif; color: #222; line-height: 1.6; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+img { max-width: 100%; display: block; }
+.announcement-bar { background: #095917; color: #fff; overflow: hidden; white-space: nowrap; padding: 8px 0; }
+.announcement-track { display: inline-block; animation: scroll 30s linear infinite; }
+.announcement-track span { margin: 0 40px; font-size: 14px; }
+@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.site-header { background: #fff; border-bottom: 3px solid #AC907A; position: relative; }
+.header-inner { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; flex-wrap: wrap; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.brand-logo { width: 55px; height: 55px; }
+.brand-name { font-size: 22px; font-weight: bold; color: #095917; }
+.hamburger { display: none; cursor: pointer; font-size: 24px; color: #095917; }
+.nav a { color: #095917; text-decoration: none; margin-left: 24px; font-size: 15px; }
+.nav a:hover { color: #D82E21; }
+.hero { background: #faf6f1; padding: 60px 0; }
+.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.hero-text h1 { font-size: 40px; color: #095917; margin-bottom: 16px; }
+.hero-text p { font-size: 17px; margin-bottom: 24px; }
+.btn { display: inline-block; background: #D82E21; color: #fff; padding: 12px 28px; text-decoration: none; border-radius: 4px; font-weight: bold; }
+.btn:hover { background: #b82519; }
+.slider { position: relative; width: 100%; height: 350px; overflow: hidden; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+.slide { display: none; width: 100%; height: 100%; object-fit: cover; }
+.section { padding: 60px 0; }
+.section-alt { background: #faf6f1; }
+.section h2 { color: #095917; font-size: 30px; margin-bottom: 18px; }
+.section p { font-size: 16px; margin-bottom: 10px; }
+.gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 10px; }
+.gallery img { border-radius: 6px; aspect-ratio: 4/3; object-fit: cover; }
+.site-footer { background: #095917; color: #fff; text-align: center; padding: 20px 0; font-size: 14px; }
+@media (max-width: 768px) {
+  .hamburger { display: block; }
+  .nav { display: none; width: 100%; flex-direction: column; text-align: center; margin-top: 15px; }
+  .nav.responsive { display: flex; }
+  .nav a { margin: 10px 0; font-size: 18px; }
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-text h1 { font-size: 32px; }
+  .gallery { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 <div class="announcement-bar">
@@ -44,9 +85,9 @@
       <a href="#admissions" class="btn">Apply for 2026/2027</a>
     </div>
     <div class="slider">
-      <img class="slide" src="public/images/hero.jpg" alt="School 1">
-      <img class="slide" src="public/images/program-1.jpg" alt="School 2">
-      <img class="slide" src="public/images/program-2.jpg" alt="School 3">
+      <img class="slide" src="public/images/hero.jpg" style="display: block;">
+      <img class="slide" src="public/images/program-1.jpg">
+      <img class="slide" src="public/images/program-2.jpg">
     </div>
   </div>
 </section>
@@ -66,9 +107,9 @@
   <div class="container">
     <h2>Gallery</h2>
     <div class="gallery">
-      <img src="public/images/program-1.jpg" alt="Photo 1">
-      <img src="public/images/program-2.jpg" alt="Photo 2">
-      <img src="public/images/program-3.jpg" alt="Photo 3">
+      <img src="public/images/program-1.jpg">
+      <img src="public/images/program-2.jpg">
+      <img src="public/images/program-3.jpg">
     </div>
   </div>
 </section>
@@ -84,6 +125,21 @@
     <p>&copy; 2026 Right Wisdom School. All rights reserved.</p>
   </div>
 </footer>
-<script src="js/script.js"></script>
+<script>
+let slideIndex = 0;
+function showSlides() {
+  let slides = document.querySelectorAll(".slide");
+  for (let i = 0; i < slides.length; i++) { slides[i].style.display = "none"; }
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+  slides[slideIndex - 1].style.display = "block";
+  setTimeout(showSlides, 3000);
+}
+function toggleMenu() {
+  let nav = document.getElementById("myNav");
+  if (nav.className === "nav") { nav.className += " responsive"; } else { nav.className = "nav"; }
+}
+document.addEventListener("DOMContentLoaded", function() { showSlides(); });
+</script>
 </body>
 </html>
