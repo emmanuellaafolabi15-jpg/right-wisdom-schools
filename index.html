@@ -29,12 +29,24 @@ img { max-width: 100%; display: block; }
 .hero-text p { font-size: 17px; margin-bottom: 24px; }
 .btn { display: inline-block; background: #D82E21; color: #fff; padding: 12px 28px; text-decoration: none; border-radius: 4px; font-weight: bold; }
 .btn:hover { background: #b82519; }
+
+/* FIXED SLIDER CSS */
 .slider { position: relative; width: 100%; height: 350px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); overflow: hidden; }
-.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: fadeAnim 12s infinite; }
+.slide { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: fadeAnim 24s infinite; }
 .slide:nth-child(1) { animation-delay: 0s; }
 .slide:nth-child(2) { animation-delay: 4s; }
 .slide:nth-child(3) { animation-delay: 8s; }
-@keyframes fadeAnim { 0% { opacity: 0; } 10% { opacity: 1; } 33% { opacity: 1; } 43% { opacity: 0; } 100% { opacity: 0; } }
+.slide:nth-child(4) { animation-delay: 12s; }
+.slide:nth-child(5) { animation-delay: 16s; }
+.slide:nth-child(6) { animation-delay: 20s; }
+@keyframes fadeAnim { 
+  0% { opacity: 0; } 
+  5% { opacity: 1; } 
+  16.6% { opacity: 1; } 
+  21.6% { opacity: 0; } 
+  100% { opacity: 0; }
+}
+
 .section { padding: 60px 0; }
 .section-alt { background: #faf6f1; }
 .section h2 { color: #095917; font-size: 30px; margin-bottom: 18px; }
@@ -89,9 +101,12 @@ img { max-width: 100%; display: block; }
       <a href="#admissions" class="btn">Apply for 2026/2027</a>
     </div>
     <div class="slider">
-      <img class="slide" src="public/images/hero.jpg">
-      <img class="slide" src="public/images/program-1.jpg">
-      <img class="slide" src="public/images/program-2.jpg">
+      <img class="slide" src="public/images/newpic1.jpg">
+      <img class="slide" src="public/images/newpic2.jpg">
+      <img class="slide" src="public/images/newpic3.jpg">
+      <img class="slide" src="public/images/newpic4.jpg">
+      <img class="slide" src="public/images/newpic5.jpg">
+      <img class="slide" src="public/images/newpic6.jpg">
     </div>
   </div>
 </section>
@@ -123,8 +138,6 @@ img { max-width: 100%; display: block; }
     </div>
   </div>
 </section>
-
-</section>
 <section id="contact" class="section section-alt">
   <div class="container">
     <h2>Contact</h2>
@@ -144,4 +157,4 @@ function toggleMenu() {
 }
 </script>
 </body>
-</html>S
+</html>
